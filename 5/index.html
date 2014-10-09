@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <canvas id="i_canvas_1" width="1400px" height="1000px">
+        <p>sorry, your broswer do not support canvas</p>
+    </canvas>
+
+    <script type="text/javascript">
+    /**
+     * [changeCanvasSize description]
+     * @return {[type]} [description]
+     */
+    function changeCanvasSize() {
+        $("#i_canvas_1").attr("width", $(window).get(0).innerWidth);
+        $("#i_canvas_1").attr("height", $(window).get(0).innerHeight);
+    }
+    changeCanvasSize();
+    //加载页面时初始化canvas高度和宽度
+    $(window).resize(function() {
+        //changeCanvasSize();
+    });
+    </script>
+    <!-- 画布绘制-->
+    <script type="text/javascript">
+    var _default = {
+        x_position_1: 50,
+        y_position_1: 50,
+        x_position_2: 100,
+        y_position_2: 100,
+        block_offset: 160,
+        square_width: 100,
+        square_height: 100
+    };
+    var canvas_1 = $("#i_canvas_1").get(0);
+    var cxt = canvas_1.getContext("2d");
+    /* 绘制开始*/
+
+    /**
+     * 区域1 贝赛尔二次曲线
+     * @type {Number}
+     */
+    cxt.lineWidth = 2;
+    cxt.beginPath();
+    cxt.moveTo(50, 250);
+    /* 参数:控制点1坐标，终点坐标*/
+    cxt.quadraticCurveTo(250, 100, 450, 250);
+    cxt.stroke();
+
+    /**
+     * 区域2 贝赛尔三次曲线
+     * @type {Number}
+     */
+    cxt.lineWidth = 2;
+    cxt.beginPath();
+    cxt.moveTo(500, 250);
+    /* 参数:控制点1坐标，控制点2坐标，终点坐标*/
+    cxt.bezierCurveTo(650, 150, 800, 350, 950, 250);
+    cxt.stroke();
+    </script>
+</body>
+
+</html>

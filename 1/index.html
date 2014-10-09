@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <canvas id="rec_1" width="400" height="240" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <canvas id="canvas_3" width="400" height="240" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <!-- bottom script-->
+    <!-- draw the second canvas-->
+    <script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var cxt = c.getContext("2d");
+    cxt.fillStyle = "#98A7FA";
+    cxt.beginPath();
+    cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+    cxt.closePath();
+    cxt.fill();
+    </script>
+    <!-- draw the second canvas-->
+    <script type="text/javascript">
+    function draw21(id) {
+        var canvas = document.getElementById(id)
+        if (canvas == null)
+            return false;
+        var context = canvas.getContext("2d");
+        //实践表明在不设施fillStyle下的默认fillStyle=black
+        context.fillRect(0, 0, 100, 100);
+        //实践表明在不设施strokeStyle下的默认strokeStyle=black
+        context.strokeRect(120, 0, 100, 100);
+
+        //设置纯色
+        context.fillStyle = "red";
+        context.strokeStyle = "blue";
+        context.fillRect(0, 120, 100, 100);
+        context.strokeRect(120, 120, 100, 100);
+
+        //设置透明度实践证明透明度值>0,<1值越低，越透明，值>=1时为纯色，值<=0时为完全透明
+        context.fillStyle = "rgba(255,0,0,0.2)";
+        context.strokeStyle = "rgba(255,0,0,0.2)";
+        context.fillRect(240, 0, 100, 100);
+        context.strokeRect(240, 120, 100, 100);
+    }
+    draw21("rec_1");
+    </script>
+    <script type="text/javascript">
+    (function(canvas_id) {
+        var canvas = document.getElementById(canvas_id)
+        if (canvas == null)
+            return false;
+        var context = canvas.getContext("2d");
+        //实践表明在不设施fillStyle下的默认fillStyle=black
+        context.fillRect(0, 0, 100, 100);
+        //实践表明在不设施strokeStyle下的默认strokeStyle=black
+        context.strokeRect(120, 0, 100, 100);
+
+        //设置纯色
+        context.fillStyle = "red";
+        context.strokeStyle = "blue";
+        context.fillRect(0, 120, 100, 100);
+        context.strokeRect(120, 120, 100, 100);
+
+        //设置透明度实践证明透明度值>0,<1值越低，越透明，值>=1时为纯色，值<=0时为完全透明
+        context.fillStyle = "rgba(255,0,0,0.2)";
+        context.strokeStyle = "rgba(255,0,0,0.2)";
+        context.fillRect(240, 0, 100, 100);
+        context.strokeRect(240, 120, 100, 100);
+    })("canvas_3");
+    </script>
+</body>
+
+</html>

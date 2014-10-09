@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas id="canvas_1" width="300" height="300" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <canvas id="canvas_2" width="300" height="300" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <canvas id="canvas_3" width="300" height="300" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+    <canvas id="canvas_4" width="300" height="300" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <!-- bottom script-->
+    <script type="text/javascript">
+    /* canvas 1 */
+    (function(canvas_id) {
+        var canvas = document.getElementById(canvas_id)
+        if (canvas == null)
+            return false;
+        var cxt = canvas.getContext("2d");
+        cxt.fillStyle = "#98A7FA";
+        cxt.beginPath();
+        cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+        cxt.closePath();
+        cxt.fill();
+    })("canvas_1");
+    /* canvas 2 */
+    (function(canvas_id) {
+        var canvas = document.getElementById(canvas_id)
+        if (canvas == null)
+            return false;
+        var cxt = canvas.getContext("2d");
+
+        cxt.beginPath();
+        cxt.moveTo(0, 0);
+        cxt.lineTo(300, 300);
+        cxt.moveTo(300, 0);
+        cxt.lineTo(0, 300);
+        //cxt.lineTo(150,150);
+        //cxt.arc(150,150,100,0,Math.PI*2,false);
+        cxt.closePath();
+        cxt.stroke(); //commenting it results in drawing no lines
+
+    })("canvas_2");
+    /* canvas 3 */
+    (function(canvas_id) {
+        var canvas = document.getElementById(canvas_id)
+        if (canvas == null)
+            return false;
+        var cxt = canvas.getContext("2d");
+        cxt.strokeStyle = "#DFDF6C";
+        cxt.lineWidth = 5;
+        cxt.beginPath();
+        //cxt.lineTo(150,150);
+        cxt.arc(150, 150, 100, 0, Math.PI, false);
+        cxt.closePath();
+        cxt.stroke(); //commenting it results in drawing no lines
+
+    })("canvas_3");
+    /* canvas 4 */
+    (function(canvas_id) {
+        var canvas = document.getElementById(canvas_id)
+        if (canvas == null)
+            return false;
+        var cxt = canvas.getContext("2d");
+        cxt.strokeStyle = "black";
+        cxt.lineWidth = 1;
+        cxt.font = "Italic 20px serif";
+        var so_text = "你好！";
+        //cxt.lineWidth = 5;
+        cxt.fillText(so_text, 20, 20);//可以用fill模式
+        //cxt.stroke(); //commenting it results in drawing no lines
+
+    })("canvas_4");
+    </script>
+</body>
+
+</html>
